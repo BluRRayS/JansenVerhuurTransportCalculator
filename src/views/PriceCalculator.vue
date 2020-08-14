@@ -1,28 +1,22 @@
 
 <template>
-  <v-container >
-    <v-stepper v-model="e6" vertical mx-auto>
-      <h1 class="text-h3 pa-4">Transport prijs berekenen</h1>
+  <v-container class="pa-xs-0 pa-lg-12" >
+    <v-stepper v-model="e6" vertical mx-auto >
+      <h1 class="text-lg-h3 text-xs-h6 font-weight-medium  pa-4 text-xs-center">Transport prijs berekenen</h1>
 
       <v-stepper-step :complete="e6 > 1" step="1">
         Goederen informatie
         <small>Wat wilt u vervoeren?</small>
       </v-stepper-step>
 
-      <v-stepper-content step="1">
-        <v-card color="grey lighten-3" class="mb-12">
-            <CargoForm/>
-        </v-card>
-        <v-btn color="primary" @click="e6 = 2">Volgende</v-btn>
+      <v-stepper-content step="1">      
+            <CargoForm  @submitCargoForm="submitCargoForm"/>       
       </v-stepper-content>
 
       <v-stepper-step :complete="e6 > 2" step="2">Transport gegevens<small>Start en eind bestemming</small></v-stepper-step>
 
       <v-stepper-content step="2">
-        <v-card color="grey lighten-3" class="mb-12">
-          <TransportRouteForm/>
-        </v-card>
-        <v-btn color="primary" @click="e6 = 3">Volgende</v-btn>
+          <TransportRouteForm @submitRoute="submitRoute"/>
       </v-stepper-content>
 
       <v-stepper-step :complete="e6 > 3" step="3">Laad en los tijden</v-stepper-step>
@@ -62,6 +56,16 @@ export default {
     data () {
       return {
         e6: 1,
+        cargoValid: true,
+      }
+    },
+
+    methods:{
+      submitCargoForm(){
+        this.e6 = 2;
+      },
+      submitRoute(){
+        this.e6 = 3;
       }
     }
 };

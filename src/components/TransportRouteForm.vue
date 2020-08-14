@@ -1,43 +1,50 @@
 <template>
-  <v-container>
-    <v-form ref="form">
-      <v-autocomplete
-        v-model="startLocation"
-        :items="startSuggestions"
-        :loading="loadingStart"
-        :search-input.sync="searchStart"
-        no-filter
-        item-text="name"
-        item-value="location"
-        label="Ophaal locatie"
-        prepend-icon="mdi-map-marker"
-        hide-no-data
-        required
-        clearable
-        return-object
-        hint="Bijvoorbeeld: Hoek 54 Bergeijk"
-      ></v-autocomplete>
+  <div>
+    <v-card color="grey lighten-3" class="mb-12">
+      <v-container>
+        <v-form ref="form">
+          <v-autocomplete
+            v-model="startLocation"
+            :rules="required"
+            :items="startSuggestions"
+            :loading="loadingStart"
+            :search-input.sync="searchStart"
+            no-filter
+            item-text="name"
+            item-value="location"
+            label="Ophaal locatie"
+            prepend-icon="mdi-map-marker"
+            hide-no-data
+            required
+            clearable
+            return-object
+            hint="Bijvoorbeeld: Hoek 54 Bergeijk"
+          ></v-autocomplete>
 
-      <v-autocomplete
-        v-model="endLocation"
-        :items="endSuggestions"
-        :loading="loadingEnd"
-        :search-input.sync="searchEnd"
-        no-filter
-        item-text="name"
-        item-value="location"
-        label="Bestemmings locatie"
-        prepend-icon="mdi-map-marker"
-        hide-no-data
-        required
-        clearable
-        return-object
-        hint="Bijvoorbeeld: Hoek 54 Bergeijk"
-      ></v-autocomplete>
-      <v-btn @click="calculateDistance" primary>Afstand Berekenen</v-btn>
-      <v-banner single-line v-if="distance">{{distance}} KM</v-banner>
-    </v-form>
-  </v-container>
+          <v-autocomplete
+            v-model="endLocation"
+            :rules="required"
+            :items="endSuggestions"
+            :loading="loadingEnd"
+            :search-input.sync="searchEnd"
+            no-filter
+            item-text="name"
+            item-value="location"
+            label="Bestemmings locatie"
+            prepend-icon="mdi-map-marker"
+            hide-no-data
+            required
+            clearable
+            return-object
+            hint="Bijvoorbeeld: Hoek 54 Bergeijk"
+          ></v-autocomplete>
+          <v-btn @click="calculateDistance" primary>Afstand Berekenen</v-btn>
+          <v-banner single-line v-if="distance">{{distance}} KM</v-banner>
+        </v-form>
+      </v-container>
+    </v-card>
+    <v-btn color="primary" @click="submit">Volgende</v-btn>
+  </div>
 </template>
 
 <script>
@@ -60,6 +67,7 @@ export default {
       startLocation: "",
       distance: 0,
       jansenVerhuurLocatie: { lat: "51.318090", lon: "5.367440" },
+      required: [(v) => !!v || "Dit veld is verplicht!"],
     };
   },
   methods: {
@@ -161,6 +169,11 @@ export default {
           console.log(result.data.routes[0].distance);
           this.distance = parseFloat(result.data.routes[0].distance) / 1000;
         });
+    },
+    submit() {
+      if (this.$refs.form.validate()) {
+        this.$emit("submitRoute");
+      }
     },
   },
   watch: {

@@ -1,7 +1,7 @@
 <template>
   <v-footer
     color="primary lighten-1"
-    absolute
+    
     padless
   >
     <v-row

@@ -1,7 +1,7 @@
 <template>
   <v-container>
-    <v-form ref="form">
-      <v-text-field label="Uw naam" required clearable></v-text-field>
+    <v-form ref="reservationForm" v-model="reservationFormValid" >
+      <v-text-field label="Uw naam" prepend-icon="mdi-account" required clearable></v-text-field>
 
       <v-text-field
         label="Email"
@@ -19,12 +19,19 @@
         clearable
         prepend-icon="mdi-phone"
       ></v-text-field>
-      <v-checkbox
-        v-model="AgreeToStatement"
-        class="mx-2"
-        label="Ik ga akkoord met de privacy voorwaarden"
-      ></v-checkbox>
-      <v-checkbox v-model="AgeCheck" class="mx-2" label="Ik bevestig dat ik ouder ben dan 16 jaar"></v-checkbox>
+      <v-checkbox v-model="terms" :rules="[v => !!v || 'Je moet akkoord gaan met onze privacy voorwaarden!']" class="mx-2" required>
+        <template v-slot:label>
+          <div @click.stop>
+            Ik ga akkoord met de
+            <a
+              href="/privacy_statement.pdf"
+              target="_blank"
+              @click.stop="terms = true"
+            >privacy voorwaarden</a>
+          </div>
+        </template>
+      </v-checkbox>
+      <v-checkbox v-model="AgeCheck" :rules="[v => !!v || 'Je moet minimaal 16 jaar oud zijn!']" required class="mx-2" label="Ik bevestig dat ik ouder ben dan 16 jaar"></v-checkbox>
     </v-form>
   </v-container>
 </template>
@@ -34,8 +41,9 @@ export default {
   name: "ReservationForm",
   data() {
     return {
-      AgreeToStatement: false,
+      terms: false,
       AgeCheck: false,
+      reservationFormValid: false,
     };
   },
 };
