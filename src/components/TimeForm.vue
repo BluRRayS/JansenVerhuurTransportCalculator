@@ -19,6 +19,7 @@
         min="20"
          class="pt-10"
       ></v-slider>
+      <p class="grey--text">Wij tellen een minimum laad en los tijd van 20 minuten.</p>
       <!-- <v-text-field label="Laad tijd" value="20" hint="Minimaal 20" suffix="Minuten" type="number" required  clearable prepend-icon="mdi-clock-time-four-outline"></v-text-field>
       <v-text-field label="Los tijd" value="20" hint="Minimaal 20" suffix="Minuten" type="number"  required clearable  prepend-icon="mdi-clock-time-four-outline"></v-text-field> -->
     </v-form>

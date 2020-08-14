@@ -61,7 +61,8 @@ export default {
     },
 
     methods:{
-      submitCargoForm(){
+      submitCargoForm(cargo){
+        console.log(cargo);
         this.e6 = 2;
       },
       submitRoute(){
