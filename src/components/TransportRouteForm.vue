@@ -38,12 +38,10 @@
             return-object
             hint="Bijvoorbeeld: Hoek 54 Bergeijk"
           ></v-autocomplete>
-          <v-btn @click="calculateDistance" primary>Afstand Berekenen</v-btn>
-          <v-banner single-line v-if="distance">{{distance}} KM</v-banner>
         </v-form>
       </v-container>
     </v-card>
-    <v-btn color="primary" @click="submit">Volgende</v-btn>
+    <v-btn color="primary" @click="calculateDistance" :loading="loadingDistance">Volgende</v-btn>
   </div>
 </template>
 
@@ -66,8 +64,10 @@ export default {
       startSuggestions: [],
       startLocation: "",
       distance: 0,
+      loadingDistance: false,
       jansenVerhuurLocatie: { lat: "51.318090", lon: "5.367440" },
       required: [(v) => !!v || "Dit veld is verplicht!"],
+      route: {},
     };
   },
   methods: {
@@ -91,7 +91,7 @@ export default {
             "&format=json"
         )
         .then((result) => {
-          console.log(result.data);
+          // console.log(result.data);
           result.data.forEach((element) => {
             self.startSuggestions.push({
               name: element.display_name,
@@ -102,10 +102,11 @@ export default {
               id: element.place_id,
             });
           });
-          console.log(self.startSuggestions);
+          // console.log(self.startSuggestions);
         })
         .finally(() => (self.loadingStart = false));
     },
+
     makeSearchEnd: (value, self) => {
       // Handle empty value
       if (!value) {
@@ -117,7 +118,7 @@ export default {
       }
       self.endSuggestions = [];
       self.loadingEnd = true;
-      console.log(value);
+      // console.log(value);
       axios
         .get(
           "https://eu1.locationiq.com/v1/search.php?key=d48cdffaffc4f0&q=" +
@@ -125,7 +126,7 @@ export default {
             "&format=json"
         )
         .then((result) => {
-          console.log(result.data);
+          // console.log(result.data);
           result.data.forEach((element) => {
             self.endSuggestions.push({
               name: element.display_name,
@@ -136,10 +137,11 @@ export default {
               id: element.place_id,
             });
           });
-          console.log(self.endSuggestions);
+          // console.log(self.endSuggestions);
         })
         .finally(() => (self.loadingEnd = false));
     },
+
     calculateDistance() {
       var coordinates =
         this.jansenVerhuurLocatie.lon +
@@ -157,7 +159,7 @@ export default {
         this.jansenVerhuurLocatie.lon +
         "," +
         this.jansenVerhuurLocatie.lat;
-
+      this.loadingDistance = true;
       axios
         .get(
           "https://eu1.locationiq.com/v1/directions/driving/" +
@@ -165,14 +167,19 @@ export default {
             "?key=d48cdffaffc4f0&steps=true"
         )
         .then((result) => {
-          console.log(result.data);
-          console.log(result.data.routes[0].distance);
-          this.distance = parseFloat(result.data.routes[0].distance) / 1000;
-        });
+          // console.log(result.data);
+          this.route.distance =
+            parseFloat(result.data.routes[0].distance) / 1000;
+          this.route.startLocation = this.startLocation;
+          this.route.endLocation = this.endLocation;
+          this.loadingDistance = false;
+          this.submit();
+        })
+        .finally(() => (this.loadingDistance = false));
     },
     submit() {
       if (this.$refs.form.validate()) {
-        this.$emit("submitRoute");
+        this.$emit("submitRoute", this.route);
       }
     },
   },

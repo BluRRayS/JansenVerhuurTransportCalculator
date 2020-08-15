@@ -78,11 +78,11 @@ export default {
   name: "CargoForm",
   data() {
     return {
-      name:"",
-      weight:0,
-      height:0,
-      width:0,
-      length:0,
+      name:"bobcat",
+      weight:1,
+      height:1,
+      width:1,
+      length:1,
       files: undefined,
 
       rules: {
