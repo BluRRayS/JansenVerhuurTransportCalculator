@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-img src="@/assets/pellet.jpg" aspect-ratio="6" style="opacity:0.9">
+    <v-img src="@/assets/pellet.webp" aspect-ratio="6" style="opacity:0.9">
       <v-container>
         <v-row  class="lightbox white--text pa-2 fill-height">
           <v-col>
@@ -20,7 +20,7 @@
         </v-col>
         <v-col cols="12" lg="6"> 
           <v-img
-            src="@/assets/jansen-verhuur.jpg"
+            src="@/assets/jansen-verhuur.webp"
             max-height="400"
             max-width="500"
             aspect-ratio="1"

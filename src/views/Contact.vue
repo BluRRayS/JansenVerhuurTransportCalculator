@@ -1,10 +1,11 @@
 <template>
   <div>
-    <v-img src="@/assets/pellet.jpg" aspect-ratio="6" style="opacity:0.9">
+    <v-img src="@/assets/pellet.webp" aspect-ratio="6" style="opacity:0.9">
       <v-container>
         <v-row class="lightbox white--text pa-2 fill-height">
           <v-col>
-            <div class="text-h3 pl-4 font-weight-bold" light>Contact</div>
+            <div class="text-h3 pl-4 font-weight-bold" >Contact</div>
+            <div class="text-h3 pl-4 font-weight-thin" >Neem gerust contact met ons op</div>
           </v-col>
         </v-row>
       </v-container>
@@ -13,7 +14,7 @@
       <v-row>
         <v-col cols="12" lg="6" class="pa-4">
           <v-card class="px-4 py-6">
-            <h2 class="pb-2 text-h4 mb-2">Neem gerust contact met ons op</h2>
+            <!-- <h2 class="pb-2 text-h4 mb-2"></h2> -->
             <p>
               <strong>
                 Adres
