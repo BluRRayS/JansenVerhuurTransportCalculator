@@ -4,7 +4,7 @@
       <v-container>
         <v-row class="lightbox white--text pa-2 fill-height text-center">
           <v-col style="background:rgba(128,128,128,0.3)">
-            <div class="text-h1 pl-4 font-weight-bold" light>Transport nodig?</div>
+            <div class="text-sm-h1 text-xs-h2 pl-4 font-weight-bold" light>Transport nodig?</div>
             <div class="text-h4 pl-4 font-weight-thin">Doe het met Jansen Verhuur</div>
           </v-col>
         </v-row>
