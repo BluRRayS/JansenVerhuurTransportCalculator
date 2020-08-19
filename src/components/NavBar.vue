@@ -3,7 +3,7 @@
     <v-app-bar app class="primary">
       <v-app-bar-nav-icon class="white--text hidden-sm-and-up" @click="drawer = !drawer"></v-app-bar-nav-icon>
       <router-link to="/" tag="span" style="cursor: pointer">
-        <v-toolbar-title class="text-uppercase white--text ">
+        <v-toolbar-title class="text-uppercase white--text">
           <span class="font-weight-light">Jansen Verhuur </span>
           <span>Transport</span>
         </v-toolbar-title>

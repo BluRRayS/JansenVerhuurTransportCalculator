@@ -39,6 +39,13 @@
             hint="Bijvoorbeeld: Hoek 54 Bergeijk"
           ></v-autocomplete>
         </v-form>
+        <div class="grey--text px-md-9 pt-4">
+          <p class="text-body-2">
+            <span class="font-weight-bold">Let op!</span>
+            <br />Wij verwachten dat de ingevulde locaties goedbereikbaar zijn met onze vrachtwagens.<br/>
+            Is dit niet het geval dan kan het zijn dat er een meer prijs wordt toegevoegd boven op de al berekende prijs.
+          </p>
+        </div>
       </v-container>
     </v-card>
     <v-btn color="primary" @click="calculateDistance" :loading="loadingDistance">Volgende</v-btn>
@@ -83,7 +90,6 @@ export default {
       self.startSuggestions = [];
       self.loadingStart = true;
 
-      console.log(value);
       axios
         .get(
           "https://eu1.locationiq.com/v1/search.php?key=d48cdffaffc4f0&q=" +
