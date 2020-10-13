@@ -14,7 +14,7 @@
       <v-row>
         <v-col>
           <a href="https://www.jansenverhuur.nl" style="color:transparent">
-            <v-btn class="mx-2 mb-6" fab dark flat x-large color="blue" elevation="0">
+            <v-btn class="mx-2 mb-6" fab dark  x-large color="blue" elevation="0">
               <v-icon dark>mdi-check</v-icon>
             </v-btn>
           </a>
@@ -23,7 +23,7 @@
         </v-col>
         <v-col>
           <router-link to="/priceCalculator" style="color:transparent">
-            <v-btn class="mx-2 mb-6" fab dark flat x-large color="blue" elevation="0">
+            <v-btn class="mx-2 mb-6" fab dark  x-large color="blue" elevation="0">
               <v-icon dark>mdi-truck</v-icon>
             </v-btn>
           </router-link>
@@ -32,7 +32,7 @@
         </v-col>
         <v-col>
           <router-link to="/priceCalculator" style="color:transparent">
-            <v-btn class="mx-2 mb-6" fab dark flat x-large color="blue" elevation="0">
+            <v-btn class="mx-2 mb-6" fab dark  x-large color="blue" elevation="0">
               <v-icon dark>mdi-currency-eur</v-icon>
             </v-btn>
           </router-link>
@@ -41,7 +41,7 @@
         </v-col>
         <v-col>
           <a href="https://www.jansenverhuur.nl" style="color:transparent">
-            <v-btn class="mx-2 mb-6" fab dark flat x-large color="blue" elevation="0">
+            <v-btn class="mx-2 mb-6" fab dark x-large color="blue" elevation="0">
               <v-icon dark>mdi-account-group</v-icon>
             </v-btn>
           </a>
