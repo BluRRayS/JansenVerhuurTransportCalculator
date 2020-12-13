@@ -1,27 +1,30 @@
 <template>
   <div>
-    <v-img src="@/assets/pellet.webp" aspect-ratio="6" style="opacity:0.9">
+    <v-img src="@/assets/bergeijk.jpg" aspect-ratio="6" style="opacity: 0.9">
       <v-container>
         <v-row class="lightbox white--text pa-2 fill-height">
           <v-col>
-            <div class="text-h3 pl-4 font-weight-bold" >Contact</div>
-            <div class="text-h3 pl-4 font-weight-thin" >Neem gerust contact met ons op</div>
+            <div class="text-h3 pl-4 font-weight-bold">Contact</div>
+            <div class="text-h3 pl-4 font-weight-thin">
+              Neem gerust contact met ons op
+            </div>
           </v-col>
         </v-row>
       </v-container>
     </v-img>
     <v-container>
-      <v-row>
-        <v-col cols="12" lg="6" class="pa-4">
-          <v-card class="px-4 py-6">
-            <!-- <h2 class="pb-2 text-h4 mb-2"></h2> -->
+      <v-card class="px-4 py-6">
+        <v-row>
+          <v-col cols="12" lg="6" class="pa-4">
+            <h3 class="pb-4">
+            Contact gegevens
+            </h3>
+
             <p>
               <strong>
                 Adres
-                <br />
-              </strong>Jansen Verhuur Bergeijk B.V.
-              <br />Hoek 54
-              <br />5571 GK Bergeijk
+                <br /> </strong
+              >Jansen Verhuur Bergeijk B.V. <br />Hoek 54 <br />5571 GK Bergeijk
             </p>
 
             <p>
@@ -43,22 +46,22 @@
             <p>
               <strong>
                 Bedrijfsgegevens:
-                <br />
-              </strong>KvK: 66359716
-              <br />BTW: NL8565.12.047.B01
+                <br /> </strong
+              >KvK: 66359716 <br />BTW: NL8565.12.047.B01
             </p>
-          </v-card>
-        </v-col>
-        <v-col cols="12" lg="6">
-          <div  id="mapContainer" class="basemap pa-4 mx-auto"></div>
-        </v-col>
-      </v-row>
+          </v-col>
+          <v-col cols="12" lg="6">
+            <div id="mapContainer" class="basemap pa-4 mx-auto"></div>
+          </v-col>
+        </v-row>
+      </v-card>
     </v-container>
   </div>
 </template>
 
 <script>
 import mapboxgl from "mapbox-gl";
+import "mapbox-gl/dist/mapbox-gl.css";
 
 export default {
   data() {

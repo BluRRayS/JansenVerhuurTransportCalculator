@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-card color="grey lighten-3" class="mb-12">
+    <v-card color="grey lighten-3" class="mb-12" >
       <v-container>
         <v-row class="pl-4">
           <div>Uw verwachte kosten voor het transport:</div>
@@ -147,7 +147,7 @@
         </v-form>
       </v-container>
     </v-card>
-    <v-btn color="primary" @click="submit">Reserveren</v-btn>
+    <v-btn color="red" dark @click="submit">Reserveren</v-btn>
   </div>
 </template>
 

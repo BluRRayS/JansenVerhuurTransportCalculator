@@ -48,7 +48,7 @@
         </div>
       </v-container>
     </v-card>
-    <v-btn color="primary" @click="calculateDistance" :loading="loadingDistance">Volgende</v-btn>
+    <v-btn color="red" dark @click="calculateDistance" :loading="loadingDistance">Volgende</v-btn>
   </div>
 </template>
 

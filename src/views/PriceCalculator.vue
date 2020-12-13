@@ -1,21 +1,24 @@
 
 <template>
   <v-container class="pa-0 pa-md-12">
-    <v-stepper v-model="e6" vertical mx-auto>
+    <v-row no-gutters >
+      <v-spacer class="d-none d-sm-flex"></v-spacer>
+      <v-col xs="12" sm="12" md="12" lg="8"  mx-auto>
+       <v-stepper v-model="e6" vertical >
       <h1
         class="text-lg-h3 text-xs-h6 font-weight-medium pa-4 text-xs-center"
       >Transport prijs berekenen</h1>
 
-      <v-stepper-step :complete="e6 > 1" step="1">
+      <v-stepper-step :complete="e6 > 1" step="1" color="red">
         Goederen informatie
         <small>Wat wilt u vervoeren?</small>
       </v-stepper-step>
 
-      <v-stepper-content step="1">
+      <v-stepper-content step="1" color="red">
         <CargoForm @submitCargoForm="submitCargoForm" />
       </v-stepper-content>
 
-      <v-stepper-step :complete="e6 > 2" step="2">
+      <v-stepper-step :complete="e6 > 2" step="2" color="red">
         Transport gegevens
         <small>Start en eind bestemming</small>
       </v-stepper-step>
@@ -24,17 +27,17 @@
         <TransportRouteForm @submitRoute="submitRoute" />
       </v-stepper-content>
 
-      <v-stepper-step :complete="e6 > 3" step="3">Laad en los tijden</v-stepper-step>
+      <v-stepper-step :complete="e6 > 3" step="3" color="red">Laad en los tijden</v-stepper-step>
 
       <v-stepper-content step="3">
         <TimeForm @submitTimeForm="submitTimeForm" />
       </v-stepper-content>
 
-      <v-stepper-step step="4">
+      <v-stepper-step step="4" color="red">
         Reserveren
         <small>Zie de prijs van uw transport en boek gelijk</small>
       </v-stepper-step>
-      <v-stepper-content step="4">
+      <v-stepper-content step="4" >
         <ReservationForm
           @submitReservation="submitReservation"
           :price="price"
@@ -44,6 +47,11 @@
         />
       </v-stepper-content>
     </v-stepper>
+    
+    </v-col>
+      <v-spacer class="d-none d-sm-flex"></v-spacer>
+    </v-row>
+   
   </v-container>
 </template>
 

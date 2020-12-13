@@ -9,10 +9,10 @@
       no-gutters
     >
       <v-col
-        class="primary lighten-2 py-4 text-center white--text"
+        class="grey darken-3 py-4 text-center white--text"
         cols="12"
       >
-        {{ new Date().getFullYear() }} — <strong>Jansen Verhuur</strong>
+        {{ new Date().getFullYear() }} — <strong>&copy;  Bouwmachinetransport.nl</strong>
       </v-col>
     </v-row>
   </v-footer>

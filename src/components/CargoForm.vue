@@ -102,7 +102,7 @@
         </v-form>
       </v-container>
     </v-card>
-    <v-btn color="primary" @click="submit">Volgende</v-btn>
+    <v-btn color="red" dark @click="submit">Volgende</v-btn>
   </div>
 </template>
 

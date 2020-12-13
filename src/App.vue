@@ -45,4 +45,7 @@ export default {
 .fade-leave {
   opacity: 1;
 }
+.lightbox{
+  background:rgba(128,128,128,0.3)
+}
 </style>
