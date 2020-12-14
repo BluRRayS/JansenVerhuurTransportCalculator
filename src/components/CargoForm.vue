@@ -42,11 +42,11 @@
           ></v-text-field>
           <v-text-field
             v-model="weight"
-            :rules="[rules.required]"
+            :rules="[rules.required,rules.maxWeight]"
             label="Gewicht"
             required
             type="number"
-            suffix="KG"
+            suffix="KG"         
             class="px-md-2"
           ></v-text-field>
           <v-checkbox
@@ -126,10 +126,7 @@ export default {
 
       rules: {
         required: (value) => !!value || "Dit veld is verplicht!",
-        max(value, max, unit) {
-          return (value) =>
-            value <= max || `Mag niet meer zijn dan  ${max} ${unit} !`;
-        },
+        maxWeight: (value) =>  value <= 20000 || `Mag niet meer zijn dan 20.000kg !`
         //  loanMax: value => value <= 50000 || 'Max should not be above £50,000',
       },
     };
@@ -137,7 +134,7 @@ export default {
   methods: {
     submit() {
       if (this.$refs.form.validate()) {
-        if(this.weight > 3000)
+        if(this.weight > 20000)
         {
           this.extremeWeight = true;
         }

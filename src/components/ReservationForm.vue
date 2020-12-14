@@ -16,7 +16,7 @@
         <v-row v-if="extremeWeight">
           <v-banner
             icon="mdi-alert"
-          >Het gewicht van het artikel dat u wilt vervoeren is groter daan 3000kg! Hiervoor moeten wij een offerte aanvragen en is de schatting van de prijs onjuist.</v-banner>
+          >Het gewicht van het artikel dat u wilt vervoeren is groter dan 20.000kg! Hiervoor moeten wij een offerte aanvragen en is de schatting van de prijs onjuist.</v-banner>
         </v-row>
         <v-row v-if="extremeSize">
           <v-banner
