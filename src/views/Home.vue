@@ -62,7 +62,7 @@
         </v-col>
         <v-col cols="12" lg="6" class="pa-4">
           <h2 class="pb-2">Top transport en dat niet te duur!</h2>
-          <p>Welkom bij Bouwmachinetransport.nl, de specialist voor tranpsort van hoogwerkers, bouwgereedschappen, tuinmachines, steigermaterialen en nog véél meer! Bouwmachinetransport.nl is onderdeel van Jansen Verhuur dat al meer dan 30 jaar gespecialiseerd in de verhuur en verkoop van hoogwerkers bouwgereedschappen, tuinmachines en steigermaterialen!</p>
+          <p>Welkom bij Bouwmachinetransport.nl, de specialist voor transport van hoogwerkers, bouwgereedschappen, tuinmachines, steigermaterialen en nog véél meer! Bouwmachinetransport.nl is onderdeel van Jansen Verhuur dat al meer dan 30 jaar gespecialiseerd in de verhuur en verkoop van hoogwerkers bouwgereedschappen, tuinmachines en steigermaterialen!</p>
           <p>Sinds kort kunnen we u ook op weg helpen met het transport van uw machines en aparaten naar uw gewenste bestemming. Wij kunnen u voorzien van transport in Nederland, België en Duitsland.</p>
           <p>Wij staan garant voor een goede service en advies voor particulieren en bedrijven!</p>
           <router-link to="/priceCalculator" style="color:transparent" >
